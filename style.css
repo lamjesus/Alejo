@@ -1,0 +1,169 @@
+:root{
+--colorFuentePrincipal:#37474F;
+--colorFuenteDatos:#4CAF50;
+--select-border: rgb(177, 177, 177);
+--select-focus: blue;
+--select-arrow: var(--select-border);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding:0;
+    background-color:#f4f6fb;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--colorFuentePrincipal);
+}
+select::-ms-expand {
+    display: none;
+}
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 14px;
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.8rem;
+    cursor: inherit;
+    line-height: inherit;
+    outline: none;
+    font-weight: 300;
+}
+.select {
+    width: 100%;
+    min-width: 15ch;
+    max-width: 30ch;
+    border-radius: 0.80em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #E8EAF6;
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+}
+select,
+.select:after {
+  grid-area: select;
+}
+
+/* Mapa en escala de grises */
+.leaflet-tile-pane {
+    -webkit-filter:  grayscale(90%);
+    filter: grayscale(90%);
+}
+.select::after {
+    content: url(./images/arrow-down.svg);
+    width: 0.6em;
+    height: 1.3em;
+    margin-right:12px;
+    justify-self: end;
+    align-self: center;
+}
+.contenedorPrincipal {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    column-gap: 16px;
+    height: 100vh;
+}
+.contenedorPrincipal > .filtros {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin:16px 0 16px 16px;
+}
+.contenedorPrincipal > .mapa{
+    border-radius: 12px;
+    margin:16px 16px 16px 0;
+}
+.label,p{
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--colorFuentePrincipal);
+    margin-block-start: 18px;
+    margin-block-end: 6px;
+}
+input[type=checkbox]{
+    display: none;
+}
+div > input[type=checkbox] + label:hover{
+    cursor: pointer;
+}
+div > input[type=checkbox] + label {
+  color: #ccc;
+  font-style: italic;
+} 
+input[type=checkbox]:checked + .inputSemaforo{
+  background-color: #F06292;
+}
+input[type=checkbox]:checked + .inputBicicleta{
+    background-color: #FFD600;
+}
+input[type=checkbox]:checked + .inputCamara{
+    background-color: #2962FF;
+}
+input[type=checkbox]:checked + .inputSemaforo > svg{
+    fill: #ffffff;
+}
+input[type=checkbox]:checked + .inputBicicleta > svg{
+    fill: #ffffff;
+}
+input[type=checkbox]:checked + .inputCamara > svg{
+    fill: #ffffff;
+}
+.SemPal{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    margin-top: 40px;
+}
+.SemPal > div{
+    width: 100%;
+}
+.SemPal > div > .inputSemaforo{
+    background-color: #FFEBEE;
+}
+.SemPal > div > .inputBicicleta{
+    background-color:#FFF8E1;
+}
+.SemPal > div > .inputCamara{
+    background-color:#E3F2FD;
+}
+.SemPal > div > label{
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+}
+.SemPal > div > label > svg{
+    width: 60%;
+}
+
+.dataRow{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 1rem 1rem 0 1rem;
+}
+.dataRow > div{
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    padding: 1rem;
+}
+.dataRow > div > p{
+    margin: 0;
+}
+.dataRow > div > span{
+   color: var(--colorFuenteDatos);
+}
