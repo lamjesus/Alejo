@@ -15,314 +15,359 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600&display=swap" >
     <link rel="stylesheet" href="./style.css">
 
-    <script src="listadoProyectos.js"></script>
-
+    <script src="PREV_listadoProyectos.js"></script>
 </head>
 <body onload="myFunction()">
     
     <section class="dataRow">
         <div>
-            <p>Presupuesto</p>
-            <span id="dataPresupuesto">500.000.000.000</span>
+            <p>Presupuesto Total</p>
+            <span>36.735.016.675</span>
         </div>
         <div>
-            <p>Presupuesto</p>
-            <span>500.000.000.000</span>
+            <p>Presupuesto total del proyecto</p>
+            <span id="dataPresupuesto">Selecciona un Proyecto</span>
         </div>
         <div>
-            <p>Presupuesto</p>
-            <span>500.000.000.000</span>
+            <p>Presupuesto invertido con corte a 30 de Sept.</p>
+            <span id="dataPresupuestoInvertido">Selecciona un Proyecto</span>
         </div>
     </section>
+    
+    <div class="contenedorPrincipal">
+        
+        <section class="filtros">
 
-    <section class="contenedorPrincipal">
-        <div class="filtros">
-
-            <label class="label" for="Proyecto">Proyecto</label>
-            <div class="select">
-                <select id="Proyecto" onchange="estiloSelect()">
-                    <option value="TODOS">Todos los proyectos</option>
-                    <option value="Galeria">Galerías de Palmira</option>
-                    <option value="Aguas de Palmira">Aguas</option>
-                    <option value="Casa de Mujeres Empoderadas de Palmira">Casa de Mujeres Empoderadas de Palmira</option>
-                    <option value="Megacolegio">Megacolegio del Sur</option>
-                    <option value="Palmira Nos Conecta">Palmira Nos Conecta</option>
-                    <option value="Sisben">Sisbén</option>
-                    <option value="ViasPaLante">Vías Pa'lante</option>
-                    <option value="Presupuesto para el Desarrollo Local">Presupuesto para el Desarrollo Local</option>
-                    <option value="Palmipilos">Palmipilos</option>
-                    <option value="Fondo Destacados">Fondo Destacados</option>
-                </select>
-            </div>
-            
-            <label class="label" for="Comuna">Comuna</label>
-            <div class="select">
-                <select id="Comuna" onchange="estiloSelect()">
-                        <option value="TODOS">Todas las comunas</option>
-                        <option value="1">Comuna 1</option>
-                        <option value="2">Comuna 2</option>
-                        <option value="3">comuna 3</option>
-                        <option value="4">Comuna 4</option>
-                        <option value="5">Comuna 5</option>
-                        <option value="6">Comuna 6</option>
-                        <option value="7">Comuna 7</option>
-                        <option value="8">Comuna 8</option>
-                        <option value="9">Comuna 9</option>
-                        <option value="10">Comuna 10</option>
-                        <option value="11">Comuna 11</option>
-                        <option value="12">Comuna 12</option>
-                        <option value="13">Comuna 13</option>
-                        <option value="14">Comuna 14</option>
-                        <option value="15">Comuna 15</option>
-                        <option value="16">Comuna 16</option>
-                </select>
-            </div>
-            
-            <label class="label" for="Barrio">Barrio</label>
-            <div class="select">
-                <select id="Barrio" onchange="estiloSelect()">
-                                <option value="TODOS">Todos los barrios</option>
-                                <option value="Alameda">Alameda</option>
-                                <option value="Alfonso López">Alfonso López</option>
-                                <option value="Almenares de La Merced">Almenares de La Merced</option>
-                                <option value="Altamira">Altamira</option>
-                                <option value="Amaime">Amaime</option>
-                                <option value="Barrancas">Barrancas</option>
-                                <option value="Beltran">Beltran</option>
-                                <option value="Berlín">Berlín</option>
-                                <option value="Betania de Comfandi">Betania de Comfandi</option>
-                                <option value="Bicentenario">Bicentenario</option>
-                                <option value="Bizerta">Bizerta</option>
-                                <option value="Bosques de Morelia">Bosques de Morelia</option>
-                                <option value="Bosques de Versalles">Bosques de Versalles</option>
-                                <option value="Boyacá">Boyacá</option>
-                                <option value="Brisas del Bolo">Brisas del Bolo</option>
-                                <option value="Caicelandia">Caicelandia</option>
-                                <option value="Campestre Palmira">Campestre Palmira</option>
-                                <option value="Casas de Alicante">Casas de Alicante</option>
-                                <option value="Caucaseco">Caucaseco</option>
-                                <option value="Central">Central</option>
-                                <option value="Centro Comercal Multicentro">Centro Comercal Multicentro</option>
-                                <option value="Centro Comercial Paraíso de Las Mercedes">Centro Comercial Paraíso de Las Mercedes</option>
-                                <option value="Ciudad Santa Bárbara">Ciudad Santa Bárbara</option>
-                                <option value="Ciudadela de Comfaunion">Ciudadela de Comfaunion</option>
-                                <option value="Ciudadela Palmira">Ciudadela Palmira</option>
-                                <option value="Colombia">Colombia</option>
-                                <option value="Colombina">Colombina</option>
-                                <option value="Concordia">Concordia</option>
-                                <option value="Conjunto Residencial Casas del Samán II">Conjunto Residencial Casas del Samán II</option>
-                                <option value="Conjunto Residencial Casas del Samán III">Conjunto Residencial Casas del Samán III</option>
-                                <option value="Conjunto Residencial Casas del Samán">Conjunto Residencial Casas del Samán</option>
-                                <option value="Conjunto Residencial Entre Palmas">Conjunto Residencial Entre Palmas</option>
-                                <option value="Conjunto Residencial Las Mercedes">Conjunto Residencial Las Mercedes</option>
-                                <option value="Conjunto Residencial Miele">Conjunto Residencial Miele</option>
-                                <option value="Conjunto Residencial Palmas de La Hacienda">Conjunto Residencial Palmas de La Hacienda</option>
-                                <option value="Conjunto Residencial Villareal">Conjunto Residencial Villareal</option>
-                                <option value="Conjuntos Multicentro">Conjuntos Multicentro</option>
-                                <option value="Coronado">Coronado</option>
-                                <option value="Departamental">Departamental</option>
-                                <option value="El Caimito">El Caimito</option>
-                                <option value="El Lago">El Lago</option>
-                                <option value="El Paraíso">El Paraíso</option>
-                                <option value="El Prado">El Prado</option>
-                                <option value="El Recreo">El Recreo</option>
-                                <option value="El Triunfo">El Triunfo</option>
-                                <option value="Estonia">Estonia</option>
-                                <option value="Fátima">Fátima</option>
-                                <option value="Fray Luis Amigó">Fray Luis Amigó</option>
-                                <option value="Guanabanal">Guanabanal</option>
-                                <option value="Guayabal">Guayabal</option>
-                                <option value="Harold Eder">Harold Eder</option>
-                                <option value="Ignacio Torres">Ignacio Torres</option>
-                                <option value="Industrial (Costado Occidental)">Industrial (Costado Occidental)</option>
-                                <option value="Industrial (Costado Oriental)">Industrial (Costado Oriental)</option>
-                                <option value="Jorge Eliécer Gaitán">Jorge Eliécer Gaitán</option>
-                                <option value="Juan Pablo II">Juan Pablo II</option>
-                                <option value="Juanchito">Juanchito</option>
-                                <option value="La Acequia">La Acequia</option>
-                                <option value="La Benedicta">La Benedicta</option>
-                                <option value="La Carbonera">La Carbonera</option>
-                                <option value="La Dolores">La Dolores</option>
-                                <option value="La Emilia">La Emilia</option>
-                                <option value="La Esperanza">La Esperanza</option>
-                                <option value="La Orlidia">La Orlidia</option>
-                                <option value="La Pampa">La Pampa</option>
-                                <option value="La Quisquina">La Quisquina</option>
-                                <option value="La Torre">La Torre</option>
-                                <option value="La Trinidad">La Trinidad</option>
-                                <option value="La Vega">La Vega</option>
-                                <option value="Las Acacias">Las Acacias</option>
-                                <option value="Las Flores">Las Flores</option>
-                                <option value="Las Mercedes">Las Mercedes</option>
-                                <option value="Libertadores">Libertadores</option>
-                                <option value="Llanogrande">Llanogrande</option>
-                                <option value="Llanos de La Rivera">Llanos de La Rivera</option>
-                                <option value="Loreto">Loreto</option>
-                                <option value="Los Cristales">Los Cristales</option>
-                                <option value="Los Samanes">Los Samanes</option>
-                                <option value="Mirriñao">Mirriñao</option>
-                                <option value="Obrero">Obrero</option>
-                                <option value="Olímpico">Olímpico</option>
-                                <option value="osques de Cenaprov">Bosques de Cenaprov</option>
-                                <option value="Palma Real">Palma Real</option>
-                                <option value="Palo Verde">Palo Verde</option>
-                                <option value="Papayal">Papayal</option>
-                                <option value="Paraíso de Las Mercedes">Paraíso de Las Mercedes</option>
-                                <option value="Parcelación Montecarlo">Parcelación Montecarlo</option>
-                                <option value="Parque de Las Mercedes">Parque de Las Mercedes</option>
-                                <option value="Plaza Campestre">Plaza Campestre</option>
-                                <option value="Plazuelas de Las Mercedes">Plazuelas de Las Mercedes</option>
-                                <option value="Poblado de Comfaunión">Poblado de Comfaunión</option>
-                                <option value="Poblado de Lourdes">Poblado de Lourdes</option>
-                                <option value="Pomona">Pomona</option>
-                                <option value="Portal de Las Palmas">Portal de Las Palmas</option>
-                                <option value="Portal de Santa Ana">Portal de Santa Ana</option>
-                                <option value="Proyecto El Porvenir">Proyecto El Porvenir</option>
-                                <option value="Quintas de Zamorano">Quintas de Zamorano</option>
-                                <option value="Rivera Escobar">Rivera Escobar</option>
-                                <option value="Rozo">Rozo</option>
-                                <option value="Samanes de La Merced">Samanes de La Merced</option>
-                                <option value="San Cayetano">San Cayetano</option>
-                                <option value="Santa Ana">Santa Ana</option>
-                                <option value="Santa Bárbara">Santa Bárbara</option>
-                                <option value="Santa Isabel">Santa Isabel</option>
-                                <option value="Santa María del Palmar">Santa María del Palmar</option>
-                                <option value="Santa Rita">Santa Rita</option>
-                                <option value="Santa Teresita">Santa Teresita</option>
-                                <option value="Tablones">Tablones</option>
-                                <option value="Tienda Nueva">Tienda Nueva</option>
-                                <option value="Urbanización Balcones de Altamira">Urbanización Balcones de Altamira</option>
-                                <option value="Urbanización Campestre">Urbanización Campestre</option>
-                                <option value="Urbanización Cañareal">Urbanización Cañareal</option>
-                                <option value="Urbanización Llano Grande">Urbanización Llano Grande</option>
-                                <option value="Uribe Uribe">Uribe Uribe</option>
-                                <option value="Veinte de Julio">Veinte de Julio</option>
-                                <option value="Versalles">Versalles</option>
-                                <option value="Villa Caimito">Villa Caimito</option>
-                                <option value="Villa Claudia">Villa Claudia</option>
-                                <option value="Villa del Palmar">Villa del Palmar</option>
-                                <option value="Villa del Rosarioo">Villa del Rosario</option>
-                                <option value="Villa Diana">Villa Diana</option>
-                                <option value="Villa Las Palmas">Villa Las Palmas</option>
-                                <option value="Villa Mercedes">Villa Mercedes</option>
-                                <option value="Villas de Cañamiel">Villas de Cañamiel</option>
-                                <option value="Zamorano">Zamorano</option>
-                </select>
-            </div>
-
-            <label class="label" for="Dependencia">Dependencia</label>
-            <div class="select">
-                <select id="Dependencia" onchange="estiloSelect()">
-                    <option value="TODOS">Todas los dependencias</option>
-                    <option value="Desarrollo Institucional">Desarrollo Institucional</option>
-                    <option value="Secretaría de Salud">Secretaría de Salud</option>
-                    <option value="Secretaría de Educación">Educación</option>
-                    <option value="Infraestructura">Infraestructura</option>
-                </select>
-            </div>
-
-            <div class="SemPal">
-               <div>
-                    <input  type="checkbox" id="semaforo" name="Semáforos" onchange="estiloSelect()">
-                    <label for="semaforo" class="inputSemaforo">
-                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             viewBox="0 0 510.2 510.2" style="enable-background:new 0 0 510.2 510.2;" xml:space="preserve">
-                        <g>
-                            <g>
-                                <path d="M331.4,196.4c0-5.7-4.6-10.3-10.3-10.3H189.2c-5.7,0-10.3,4.6-10.3,10.3s4.6,10.3,10.3,10.3h16.4
-                                    c-12.6,12.7-20.5,30.2-20.5,49.4c0,38.6,31.4,70.1,70.1,70.1s70.1-31.4,70.1-70.1c0-19.3-7.8-36.8-20.5-49.4H321
-                                    C326.7,206.7,331.4,202.1,331.4,196.4z M255.1,305.6c-27.3,0-49.4-22.2-49.4-49.4s22.2-49.4,49.4-49.4s49.4,22.2,49.4,49.4
-                                    S282.4,305.6,255.1,305.6z"/>
-                            </g>
-                        </g>
-                        <g>
-                            <g>
-                                <path d="M331.4,45c0-5.7-4.6-10.3-10.3-10.3H189.2c-5.7,0-10.3,4.6-10.3,10.3s4.6,10.3,10.3,10.3h16.4
-                                    c-12.6,12.7-20.5,30.2-20.5,49.4c0,38.6,31.4,70.1,70.1,70.1s70.1-31.4,70.1-70.1c0-19.3-7.8-36.8-20.5-49.4H321
-                                    C326.7,55.3,331.4,50.7,331.4,45z M255.1,154.2c-27.3,0-49.4-22.2-49.4-49.4s22.2-49.4,49.4-49.4s49.4,22.2,49.4,49.4
-                                    S282.4,154.2,255.1,154.2z"/>
-                            </g>
-                        </g>
-                        <g>
-                            <g>
-                                <path d="M336.5,338.6h-2.1c-5.7,0-10.3,4.6-10.3,10.3s4.6,10.3,10.3,10.3h2.1c5.7,0,10.3-4.6,10.3-10.3S342.2,338.6,336.5,338.6z"
-                                    />
-                            </g>
-                        </g>
-                        <g>
-                            <g>
-                                <path d="M304.7,359.2h3c5.7,0,10.3-4.6,10.3-10.3s-4.6-10.3-10.3-10.3H189.2c-5.7,0-10.3,4.6-10.3,10.3s4.6,10.3,10.3,10.3h16.4
-                                    c-12.6,12.7-20.5,30.2-20.5,49.4c0,38.6,31.4,70.1,70.1,70.1s70.1-31.4,70.1-70.1C325.2,389.3,317.3,371.8,304.7,359.2z
-                                     M255.1,458.1c-27.3,0-49.4-22.2-49.4-49.4s22.2-49.4,49.4-49.4s49.4,22.2,49.4,49.4S282.4,458.1,255.1,458.1z"/>
-                            </g>
-                        </g>
-                        <g>
-                            <g>
-                                <path d="M390,214.6c1.1,0.4,2.2,0.5,3.2,0.5c4.3,0,8.3-2.7,9.7-7c1.8-5.4-1.1-11.2-6.5-13l-19.7-6.6V59.2l13.2,4.4
-                                    c1.1,0.4,2.2,0.5,3.2,0.5c4.3,0,8.3-2.7,9.7-7c1.8-5.4-1.1-11.2-6.5-13l-19.7-6.6v-4.7C376.8,14.7,362,0,343.9,0H166.3
-                                    c-18.1,0-32.9,14.7-32.9,32.9v4.7l-19.7,6.6c-5.4,1.8-8.3,7.6-6.5,13c1.4,4.3,5.4,7,9.7,7c1.1,0,2.2-0.2,3.2-0.5l13.2-4.4v129.3
-                                    l-19.7,6.6c-5.4,1.8-8.3,7.6-6.5,13c1.4,4.3,5.4,7,9.7,7c1.1,0,2.2-0.2,3.2-0.5l13.2-4.4v130.3l-19.7,6.6c-5.4,1.8-8.3,7.6-6.5,13
-                                    c1.4,4.3,5.4,7,9.7,7c1.1,0,2.2-0.2,3.2-0.5l13.2-4.4v115.3c0,18.1,14.7,32.9,32.9,32.9h177.6c18.1,0,32.9-14.7,32.9-32.9V362.1
-                                    l13.2,4.4c1.1,0.4,2.2,0.5,3.2,0.5c4.3,0,8.3-2.7,9.7-7c1.8-5.4-1.1-11.2-6.5-13l-19.7-6.6V210.2L390,214.6z M356.2,477.4
-                                    c0,6.8-5.5,12.3-12.3,12.3H166.3c-6.8,0-12.3-5.5-12.3-12.3V32.9c0-6.8,5.5-12.3,12.3-12.3h177.6c6.8,0,12.3,5.5,12.3,12.3
-                                    L356.2,477.4L356.2,477.4z"/>
-                            </g>
-                        </g>
-                        </svg>
-
-                    </label>
+            <div class="elementos">
+                <label class="label" for="Dependencia">Dependencia / Secretaría</label>
+                <div class="select">
+                    <select id="Dependencia" onchange="estiloSelect()">
+                        <!-- <option value="TODOS">Todas</option> -->
+                        <option value="">Todas las Dependencias / Secretarías</option>
+                        <option value="Dirección de Gestión de Medio Ambiente">Dirección de Gestión de Medio Ambiente</option>
+                        <option value="SECRETARÍA DE EDUCACIÓN - SUBDIRECCIÓN DE CALIDAD EDUCATIVA">SECRETARÍA DE EDUCACIÓN - SUBDIRECCIÓN DE CALIDAD EDUCATIVA</option>
+                        <option value="SECRETARÍA DE EDUCACIÓN - SUBSECRETARÍA ADMINISTRATIVA Y FINANCIERA">SECRETARÍA DE EDUCACIÓN - SUBSECRETARÍA ADMINISTRATIVA Y FINANCIERA</option>
+                        <option value="SECRETARÍA DE EDUCACIÓN - SUBSECRETARÍA DE COBERTURA EDUCATIVA">SECRETARÍA DE EDUCACIÓN - SUBSECRETARÍA DE COBERTURA EDUCATIVA</option>
+                        <option value="Direccion de Tecnologia, Innovación y Ciencia">Dirección de Tecnología, Innovación y Ciencia</option>
+                        <option value="Secretartaría de Seguridad y Convivencia">Secretartaría de Seguridad y Convivencia</option>
+                        <option value="SECRETARIA DE INTEGRACION SOCIAL">SECRETARIA DE INTEGRACION SOCIAL</option>
+                    </select>
                 </div>
 
-                <div>
-                    <input  type="checkbox" id="palmibici" name="PalmiBici" onchange="estiloSelect()">
-                    <label for="palmibici" class="inputBicicleta">
-                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             viewBox="0 0 510.2 510.2" style="enable-background:new 0 0 510.2 510.2;" xml:space="preserve">
-                        <path id="XMLID_638_" d="M239.4,0.2C176,4.1,118.8,31.2,76.2,73.1c-0.5,0.4-1,0.9-1.5,1.3c-0.5,0.5-0.9,1-1.3,1.5
-                            C28,122.1,0,185.3,0,254.9c0,69.6,28,132.8,73.4,178.9c0.4,0.5,0.9,1,1.3,1.5c0.5,0.5,1,0.9,1.5,1.3C122.3,482,185.5,510,255.1,510
-                            s132.8-28,178.9-73.4c0.5-0.4,1-0.9,1.5-1.3c0.5-0.5,0.9-1,1.3-1.5c45.4-46.1,73.4-109.3,73.4-178.9s-28-132.8-73.4-178.9
-                            c-0.4-0.5-0.9-1-1.3-1.5c-0.5-0.5-1-0.9-1.5-1.3c-42.6-41.9-99.8-69-163.2-72.9c0,0-4.4,0-16.9,0C242,0.2,239.4,0.2,239.4,0.2z
-                             M478.3,239.2H302c-0.7-2.2-1.6-4.3-2.6-6.4L424,108.2C454.9,143.8,474.8,189.3,478.3,239.2z M270.8,31.7
-                            c49.9,3.5,95.4,23.4,131,54.4L277.2,210.6c-2-1-4.2-1.9-6.4-2.6V31.7z M239.4,31.7V208c-2.2,0.7-4.3,1.6-6.4,2.6L108.5,86
-                            C144.1,55.1,189.5,35.2,239.4,31.7z M86.3,108.2l124.6,124.6c-1,2-1.9,4.2-2.6,6.4H31.9C35.4,189.3,55.3,143.8,86.3,108.2z
-                             M31.9,270.6h176.3c0.7,2.2,1.6,4.3,2.6,6.4L86.3,401.5C55.3,365.9,35.4,320.5,31.9,270.6z M239.4,478.1
-                            c-49.9-3.5-95.4-23.4-131-54.4l124.6-124.6c2,1,4.2,1.9,6.4,2.6L239.4,478.1L239.4,478.1z M255.1,272.9c-10,0-18.1-8.1-18.1-18.1
-                            s8.1-18.1,18.1-18.1c10,0,18.1,8.1,18.1,18.1S265.1,272.9,255.1,272.9z M270.8,478.1V301.8c2.2-0.7,4.3-1.6,6.4-2.6l124.6,124.6
-                            C366.2,454.7,320.7,474.6,270.8,478.1z M424,401.5L299.4,276.9c1-2,1.9-4.2,2.6-6.4h176.3C474.8,320.5,454.9,365.9,424,401.5z"/>
-                        </svg>
-                    </label>
-                </div>
-
-                                <div>
-                    <input  type="checkbox" id="camara" name="camara" onchange="estiloSelect()">
-                    <label for="camara" class="inputCamara">
-                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             viewBox="0 0 510.2 510.2" style="enable-background:new 0 0 510.2 510.2;" xml:space="preserve">
-                        <g>
-                            <path d="M507.3,138.9c-2.9-4.1-7.6-6.5-12.6-6.7l-46.2-1.2l5.2-16.9c2.6-8.4-2.1-17.4-10.5-20l-283.2-88c-8.4-2.6-17.4,2.1-20,10.5
-                                l-44,141.6c-2.6,8.4,2.1,17.4,10.5,20L164,196l-9.5,30.5c-1.3,4-0.9,8.4,1.1,12.2s5.3,6.6,9.4,7.8l26.1,8.1l-64.7,104.6
-                                c-9.4-4.1-19.7-6.4-30.6-6.4H16c-8.8,0-16,7.1-16,16v120.1c0,8.8,7.1,16,16,16h79.8c41.9,0,76-34.1,76-76
-                                c0-19.5-7.4-37.4-19.6-50.9c0.3-0.4,0.6-0.8,0.9-1.2l69.5-112.3l33.9,10.5c1.6,0.5,3.2,0.7,4.7,0.7c6.8,0,13.1-4.4,15.2-11.2
-                                l9.5-30.5l103.8,32.3c1.5,0.5,3.1,0.7,4.7,0.7c2.6,0,5.1-0.6,7.4-1.8c3.7-2,6.6-5.3,7.8-9.4l5.2-16.9l38.7,25.2
-                                c2.6,1.7,5.6,2.6,8.7,2.6c1.8,0,3.7-0.3,5.4-1c4.7-1.7,8.3-5.5,9.8-10.3l31.8-102.4C511,148.1,510.2,142.9,507.3,138.9L507.3,138.9
-                                z M31.9,384.7h21.3v88.2H31.9V384.7z M95.8,472.9H85.1v-88.2h10.6c24.3,0,44.1,19.8,44.1,44.1C139.9,453.1,120.1,472.9,95.8,472.9
-                                L95.8,472.9z M250.7,239.7l-61-19l4.7-15.2l61,19L250.7,239.7z M384,231l-252.7-78.5l34.5-111.1l252.7,78.5l-6.8,21.8l-21,67.5
-                                c0,0,0,0,0,0C390.8,209.2,384,231,384,231z M453.5,225.7l-28.6-18.6l13.8-44.4l34.1,0.9L453.5,225.7L453.5,225.7z"/>
-                            <path d="M169,117.9c-4.2,0-8.3,1.7-11.3,4.7c-3,3-4.7,7.1-4.7,11.3c0,4.2,1.7,8.3,4.7,11.3c3,3,7.1,4.7,11.3,4.7
-                                c4.2,0,8.3-1.7,11.3-4.7c3-3,4.7-7.1,4.7-11.3c0-4.2-1.7-8.3-4.7-11.3C177.3,119.6,173.2,117.9,169,117.9z"/>
-                        </g>
-                        </svg>
-                    </label>
+                <label class="label" for="Proyecto">Proyecto</label>
+                <div class="select">
+                    <select id="Proyecto" onchange="estiloSelect()">
+                        <!-- <option value="TODOS">Todos los proyectos</option> -->
+                        <option value="">Todos los proyectos</option>
+                        <option value="Áreas con esquemas de Pago por Servicios Ambientales implementados">Áreas con esquemas de Pago por Servicios Ambientales implementados</option>
+                        <option value="Áreas con servicio ecosistémicos mantenidas (Siembra de Árboles)">Áreas con servicio ecosistémicos mantenidas (Siembra de Árboles)</option>
+                        <option value="Campañas de educación Ambiental y participación implementadas (Ruta Verde)">Campañas de educación Ambiental y participación implementadas (Ruta Verde)</option>
+                        <option value="PROGRAMA PALMIPILOS EN CONVENIO CON EL  BANCO INTERAMERICANO DE DESARROLLO - BID">PROGRAMA PALMIPILOS EN CONVENIO CON EL BANCO INTERAMERICANO DE DESARROLLO - BID</option>
+                        <option value="PROGRAMA MUNICIPAL DE BILINGÜISMO - Palmira Moving Palante">PROGRAMA MUNICIPAL DE BILINGÜISMO - Palmira Moving Pa'lante</option>
+                        <option value="ESTRATEGIA ESCUELA SOMOS TODOS">ESTRATEGIA ESCUELA SOMOS TODOS</option>
+                        <option value="FONDO DESTACADOS">FONDO DESTACADOS</option>
+                        <option value="GASTOS ADMINISTRATIVOS - DOTACION PARA PERSONAL ADMINISTATIVO Y DOCENTE A CARGO DEL SGP">GASTOS ADMINISTRATIVOS - DOTACION PARA PERSONAL ADMINISTATIVO Y DOCENTE A CARGO DEL SGP</option>
+                        <option value="GASTOS ADMINISTRATIVOS - BIENESTAR LABORAL">GASTOS ADMINISTRATIVOS - BIENESTAR LABORAL</option>                                 
+                        <option value="INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES RECURSOS FOME">INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES "RECURSOS FOME"</option>
+                        <option value="INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES - PROYECTO TERMINACION DE CUBIERTAS EN ESCENARIOS DEPORTIVOS">INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES-PROYECTO TERMINACION DE CUBIERTAS EN ESCENARIOS DEPORTIVOS</option>
+                        <option value="INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES CON RECURSOS FINDETER">INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES "CON RECURSOS FINDETER"</option>
+                        <option value="INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES CON RECURSOS DEL DESARROLLO LOCAL COMUNA 1">INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES "CON RECURSOS DEL DESARROLLO LOCAL COMUNA 1"</option>
+                        <option value="PROGRAMA TRANSPORTE ESCOLAR">PROGRAMA TRANSPORTE ESCOLAR</option>
+                        <option value="PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE">PROGRAMA DE ALIMENTACIÓN ESCOLAR "PAE"</option>
+                        <option value="PROGRAMA YO ELIJO MI CUPO">PROGRAMA "YO ELIJO MI CUPO"</option>
+                        <option value="Palmira Nos Conecta con Zonas WIFI Gratuitas">Palmira Nos Conecta con Zonas WIFI Gratuitas</option>
+                        <option value="Palmira Nos Conecta con los Puntos Vive Digital">Palmira Nos Conecta con los Puntos Vive Digital</option>
+                        <option value="Capacidad Operativa (Mayor presencia de la policia en comunas)">Capacidad Operativa (Mayor presencia de la policia en comunas)</option>
+                        <option value="Comparativo (Desarticulación de Bandas Delincuenciales por comuna)">Comparativo (Desarticulación de Bandas Delincuenciales por comuna)</option>
+                        <option value="MEJORAMIENTO DEL ACCESO PARA LA POBLACIÓN EN CONDICIÓN DE VULNERABILIDAD DEL MUNICIPIO DE PALMIRA">MEJORAMIENTO DEL ACCESO PARA LA POBLACIÓN EN CONDICIÓN DE VULNERABILIDAD DEL MUNICIPIO DE PALMIRA</option>
+                        <option value="Adecuación Mantenimiento y Dotación de Centros de Desarrollo Infantil Ubicados en el Municipio de Palmira">Adecuación Mantenimiento y Dotación de Centros de Desarrollo Infantil Ubicados en el Municipio de Palmira</option>
+                        <option value="Mejoramiento de la calidad de vida de adultos mayores en condición de vulnerabilidad en el municipio de Palmira">Mejoramiento de la calidad de vida de adultos mayores en condición de vulnerabilidad en el municipio de Palmira</option>
+                        <option value="Fortalecimiento de los instrumentos para la atención de la población en condición de vulnerabilidad del municipio de Palmira">Fortalecimiento de los instrumentos para la atención de la población en condición de vulnerabilidad del municipio de Palmira</option>
+                        <option value="prueba">Prueba</option>
+                    </select>
                 </div>
                 
+                <label class="label" for="Comuna">Comuna</label>
+                <div class="select">
+                    <select id="Comuna" onchange="estiloSelect()">
+                            <!-- <option value="TODOS">Todas las comunas</option> -->
+                            <option value="">Todas las comunas</option>
+                            <option value="1">Comuna 1</option>
+                            <option value="2">Comuna 2</option>
+                            <option value="3">Comuna 3</option>
+                            <option value="4">Comuna 4</option>
+                            <option value="5">Comuna 5</option>
+                            <option value="6">Comuna 6</option>
+                            <option value="7">Comuna 7</option>
+                            <option value="8">Comuna 8</option>
+                            <option value="9">Comuna 9</option>
+                            <option value="10">Comuna 10</option>
+                            <option value="11">Comuna 11</option>
+                            <option value="12">Comuna 12</option>
+                            <option value="13">Comuna 13</option>
+                            <option value="14">Comuna 14</option>
+                            <option value="15">Comuna 15</option>
+                            <option value="16">Comuna 16</option>
+                    </select>
+                </div>
+                
+                <label class="label" for="Barrio">Barrio / Corregimiento</label>
+                <div class="select">
+                    <select id="Barrio" onchange="estiloSelect()">
+                        <!-- <option value="TODOS">Todos los barrios</option> -->
+                        <option value="">Todos los barrios</option>
+                        <option value="El Prado">El Prado</option>
+                        <option value="20 de Julio">20 de Julio</option>
+                        <option value="Alfonso López">Alfonso López</option>
+                        <option value="Almendros de la Italia">Almendros de la Italia</option>
+                        <option value="Altamira">Altamira</option>
+                        <option value="Altos del Bosque">Altos del Bosque</option>
+                        <option value="Amaime Techo Azul">Amaime Techo Azul</option>
+                        <option value="Amaime">Amaime</option>
+                        <option value="Av. La Carbonera">Av. La Carbonera</option>
+                        <option value="Barrancas">Barrancas</option>
+                        <option value="Barrio">Barrio</option>
+                        <option value="Beltrán ">Beltrán </option>
+                        <option value="Berlin">Berlin</option>
+                        <option value="Betania de Comfandi">Betania de Comfandi</option>
+                        <option value="Bolo Alizal">Bolo Alizal</option>
+                        <option value="Bolo la Italia">Bolo la Italia</option>
+                        <option value="Bolo San Isidro">Bolo San Isidro</option>
+                        <option value="Bosques del Edén">Bosques del Edén</option>
+                        <option value="Caimitos">Caimitos</option>
+                        <option value="Cali">Cali</option>
+                        <option value="Caucaseco">Caucaseco</option>
+                        <option value="Central">Central</option>
+                        <option value="Centro">Centro</option>
+                        <option value="Chapinero">Chapinero</option>
+                        <option value="Chapineros">Chapineros</option>
+                        <option value="Ciudad del Campo">Ciudad del Campo</option>
+                        <option value="Ciudad Santa Barbara">Ciudad Santa Barbara</option>
+                        <option value="Coliseo de Ferias">Coliseo de Ferias</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Colombina">Colombina</option>
+                        <option value="Combia">Combia</option>
+                        <option value="Coronado">Coronado</option>
+                        <option value="Corregimiento Amaime">Corregimiento Amaime</option>
+                        <option value="Corregimiento Ayacucho La Buitrera">Corregimiento Ayacucho La Buitrera</option>
+                        <option value="Corregimiento Ayacucho, vereda Chontaduro">Corregimiento Ayacucho, vereda Chontaduro</option>
+                        <option value="Corregimiento Bolo La Italia">Corregimiento Bolo La Italia</option>
+                        <option value="Corregimiento Bolo San Isidro">Corregimiento Bolo San Isidro</option>
+                        <option value="Corregimiento Boyaca">Corregimiento Boyaca</option>
+                        <option value="Corregimiento de Amaime">Corregimiento de Amaime</option>
+                        <option value="Corregimiento de Ayacucho, vereda Aguazul">Corregimiento de Ayacucho, vereda Aguazul</option>
+                        <option value="Corregimiento de Ayacucho, vereda La María">Corregimiento de Ayacucho, vereda La María</option>
+                        <option value="Corregimiento de La Dolores">Corregimiento de La Dolores</option>
+                        <option value="Corregimiento de La Herradura">Corregimiento de La Herradura</option>
+                        <option value="Corregimiento de la Zapata, vereda Los Tambos">Corregimiento de la Zapata, vereda Los Tambos</option>
+                        <option value="Corregimiento de la Zapata">Corregimiento de la Zapata</option>
+                        <option value="Corregimiento de Potrerillo, Vereda La Quisquina">Corregimiento de Potrerillo, Vereda La Quisquina</option>
+                        <option value="Corregimiento de Rozo">Corregimiento de Rozo</option>
+                        <option value="Corregimiento de Tenjo, vereda Los Tambos">Corregimiento de Tenjo, vereda Los Tambos</option>
+                        <option value="Corregimiento de Tenjo">Corregimiento de Tenjo</option>
+                        <option value="Corregimiento de Toche, sector La Nevera">Corregimiento de Toche, sector La Nevera</option>
+                        <option value="Corregimiento el Bolo">Corregimiento el Bolo</option>
+                        <option value="Corregimiento El Bolo">Corregimiento El Bolo</option>
+                        <option value="Corregimiento El Llanito">Corregimiento El Llanito</option>
+                        <option value="Corregimiento Guanabanal">Corregimiento Guanabanal</option>
+                        <option value="Corregimiento la Dolores">Corregimiento la Dolores</option>
+                        <option value="Corregimiento La Dolores">Corregimiento La Dolores</option>
+                        <option value="Corregimiento la Herradura">Corregimiento la Herradura</option>
+                        <option value="Corregimiento La Herradura">Corregimiento La Herradura</option>
+                        <option value="Corregimiento La Torre">Corregimiento La Torre</option>
+                        <option value="Corregimiento Los Cuchos">Corregimiento Los Cuchos</option>
+                        <option value="Corregimiento MataPalo">Corregimiento MataPalo</option>
+                        <option value="Corregimiento Piles">Corregimiento Piles</option>
+                        <option value="Corregimiento Potrerillo">Corregimiento Potrerillo</option>
+                        <option value="Corregimiento Rozo">Corregimiento Rozo</option>
+                        <option value="Corregimiento Tablones">Corregimiento Tablones</option>
+                        <option value="Corregimiento Tenjo">Corregimiento Tenjo</option>
+                        <option value="El Paraiso">El Paraiso</option>
+                        <option value="El Prado">El Prado</option>
+                        <option value="El Recreo">El Recreo</option>
+                        <option value="El sembrador">El sembrador</option>
+                        <option value="Emilia">Emilia</option>
+                        <option value="Este proyecto se despliega en todas las comunas urbanas y rurales del municipio de Palmira">Este proyecto se despliega en todas las comunas urbanas y rurales del municipio de Palmira</option>
+                        <option value="Estonia">Estonia</option>
+                        <option value="Factoria">Factoria</option>
+                        <option value="Guanabanal">Guanabanal</option>
+                        <option value="Guayabal">Guayabal</option>
+                        <option value="Harold Eder">Harold Eder</option>
+                        <option value="Jose Antonio Galán ">Jose Antonio Galán </option>
+                        <option value="Juan Pablo II">Juan Pablo II</option>
+                        <option value="Juan Pablo">Juan Pablo</option>
+                        <option value="La Acequia">La Acequia</option>
+                        <option value="La Benedicta">La Benedicta</option>
+                        <option value="La Buitrera">La Buitrera</option>
+                        <option value="La Carbonera">La Carbonera</option>
+                        <option value="La Colombina">La Colombina</option>
+                        <option value="La Cometa">La Cometa</option>
+                        <option value="La Cosecha">La Cosecha</option>
+                        <option value="La Emilia">La Emilia</option>
+                        <option value="La Herradura">La Herradura</option>
+                        <option value="La Orlidia">La Orlidia</option>
+                        <option value="La Pampa">La Pampa</option>
+                        <option value="La Torre">La Torre</option>
+                        <option value="La Zapata">La Zapata</option>
+                        <option value="Las Delicias">Las Delicias</option>
+                        <option value="Las Palmeras">Las Palmeras</option>
+                        <option value="Libertadores">Libertadores</option>
+                        <option value="Llano Grande">Llano Grande</option>
+                        <option value="Loreto">Loreto</option>
+                        <option value="Los Cristales">Los Cristales</option>
+                        <option value="Los Mangos">Los Mangos</option>
+                        <option value="Los Robles">Los Robles</option>
+                        <option value="Los Sauces">Los Sauces</option>
+                        <option value="Maria Cano">Maria Cano</option>
+                        <option value="Mata Palo">Mata Palo</option>
+                        <option value="Mercedes">Mercedes</option>
+                        <option value="Mirriñao">Mirriñao</option>
+                        <option value="Molinos 100">Molinos 100</option>
+                        <option value="Molinos Cien">Molinos Cien</option>
+                        <option value="Monteclaro">Monteclaro</option>
+                        <option value="Nuevo"> Nuevo</option>
+                        <option value="Nuevo">Nuevo</option>
+                        <option value="Obando">Obando</option>
+                        <option value="Obrero">Obrero</option>
+                        <option value="Orlidia y Cristales">Orlidia y Cristales</option>          
+                        <option value="Parque del Prado">Parque del Prado</option>
+                        <option value="Parque Molinos 100">Parque Molinos 100</option>
+                        <option value="Petruc">Petruc</option>
+                        <option value="Poblado Comfaunión">Poblado Comfaunión</option>
+                        <option value="Potrerillo">Potrerillo</option>
+                        <option value="Primero de Mayo">Primero de Mayo</option>
+                        <option value="Recreo">Recreo</option>
+                        <option value="Reservas de Llanogrande">Reservas de Llanogrande</option>
+                        <option value="Rozo">Rozo</option>
+                        <option value="Sambrador">Sambrador</option>
+                        <option value="San Cayetano">San Cayetano</option>
+                        <option value="San Pedro">San Pedro</option>
+                        <option value="Santa Ana">Santa Ana</option>
+                        <option value="Santa Barbara">Santa Barbara</option>
+                        <option value="Santa Bárbara">Santa Bárbara</option>
+                        <option value="Santa María del Palmar">Santa María del Palmar</option>
+                        <option value="Santa Pedro">Santa Pedro</option>
+                        <option value="Santa Rita">Santa Rita</option>
+                        <option value="Simon Bolivar">Simon Bolivar</option>
+                        <option value="Tablones">Tablones</option>
+                        <option value="Tienda Nueva">Tienda Nueva</option>
+                        <option value="Toche">Toche</option>
+                        <option value="Trinidad">Trinidad</option>
+                        <option value="Urbanización El Bosque">Urbanización El Bosque</option>
+                        <option value="Urbanización Los Caimitos">Urbanización Los Caimitos</option>
+                        <option value="Urbanización Samanes">Urbanización Samanes</option>
+                        <option value="Versalles">Versalles</option>
+                        <option value="Villa del Rosario">Villa del Rosario</option>
+                        <option value="Villa Praga">Villa Praga</option>
+                        <option value="Zamorano">Zamorano</option>
+                    </select>
+                </div>
+    
+
+                <!-- <div class="SemPal">
+                    <div>
+                         <input  type="checkbox" id="semaforo" name="Semáforos" onchange="estiloSelect()">
+                         <label for="semaforo" class="inputSemaforo">
+                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                  viewBox="0 0 510.2 510.2" style="enable-background:new 0 0 510.2 510.2;" xml:space="preserve">
+                             <g>
+                                 <g>
+                                     <path d="M331.4,196.4c0-5.7-4.6-10.3-10.3-10.3H189.2c-5.7,0-10.3,4.6-10.3,10.3s4.6,10.3,10.3,10.3h16.4
+                                         c-12.6,12.7-20.5,30.2-20.5,49.4c0,38.6,31.4,70.1,70.1,70.1s70.1-31.4,70.1-70.1c0-19.3-7.8-36.8-20.5-49.4H321
+                                         C326.7,206.7,331.4,202.1,331.4,196.4z M255.1,305.6c-27.3,0-49.4-22.2-49.4-49.4s22.2-49.4,49.4-49.4s49.4,22.2,49.4,49.4
+                                         S282.4,305.6,255.1,305.6z"/>
+                                 </g>
+                             </g>
+                             <g>
+                                 <g>
+                                     <path d="M331.4,45c0-5.7-4.6-10.3-10.3-10.3H189.2c-5.7,0-10.3,4.6-10.3,10.3s4.6,10.3,10.3,10.3h16.4
+                                         c-12.6,12.7-20.5,30.2-20.5,49.4c0,38.6,31.4,70.1,70.1,70.1s70.1-31.4,70.1-70.1c0-19.3-7.8-36.8-20.5-49.4H321
+                                         C326.7,55.3,331.4,50.7,331.4,45z M255.1,154.2c-27.3,0-49.4-22.2-49.4-49.4s22.2-49.4,49.4-49.4s49.4,22.2,49.4,49.4
+                                         S282.4,154.2,255.1,154.2z"/>
+                                 </g>
+                             </g>
+                             <g>
+                                 <g>
+                                     <path d="M336.5,338.6h-2.1c-5.7,0-10.3,4.6-10.3,10.3s4.6,10.3,10.3,10.3h2.1c5.7,0,10.3-4.6,10.3-10.3S342.2,338.6,336.5,338.6z"
+                                         />
+                                 </g>
+                             </g>
+                             <g>
+                                 <g>
+                                     <path d="M304.7,359.2h3c5.7,0,10.3-4.6,10.3-10.3s-4.6-10.3-10.3-10.3H189.2c-5.7,0-10.3,4.6-10.3,10.3s4.6,10.3,10.3,10.3h16.4
+                                         c-12.6,12.7-20.5,30.2-20.5,49.4c0,38.6,31.4,70.1,70.1,70.1s70.1-31.4,70.1-70.1C325.2,389.3,317.3,371.8,304.7,359.2z
+                                          M255.1,458.1c-27.3,0-49.4-22.2-49.4-49.4s22.2-49.4,49.4-49.4s49.4,22.2,49.4,49.4S282.4,458.1,255.1,458.1z"/>
+                                 </g>
+                             </g>
+                             <g>
+                                 <g>
+                                     <path d="M390,214.6c1.1,0.4,2.2,0.5,3.2,0.5c4.3,0,8.3-2.7,9.7-7c1.8-5.4-1.1-11.2-6.5-13l-19.7-6.6V59.2l13.2,4.4
+                                         c1.1,0.4,2.2,0.5,3.2,0.5c4.3,0,8.3-2.7,9.7-7c1.8-5.4-1.1-11.2-6.5-13l-19.7-6.6v-4.7C376.8,14.7,362,0,343.9,0H166.3
+                                         c-18.1,0-32.9,14.7-32.9,32.9v4.7l-19.7,6.6c-5.4,1.8-8.3,7.6-6.5,13c1.4,4.3,5.4,7,9.7,7c1.1,0,2.2-0.2,3.2-0.5l13.2-4.4v129.3
+                                         l-19.7,6.6c-5.4,1.8-8.3,7.6-6.5,13c1.4,4.3,5.4,7,9.7,7c1.1,0,2.2-0.2,3.2-0.5l13.2-4.4v130.3l-19.7,6.6c-5.4,1.8-8.3,7.6-6.5,13
+                                         c1.4,4.3,5.4,7,9.7,7c1.1,0,2.2-0.2,3.2-0.5l13.2-4.4v115.3c0,18.1,14.7,32.9,32.9,32.9h177.6c18.1,0,32.9-14.7,32.9-32.9V362.1
+                                         l13.2,4.4c1.1,0.4,2.2,0.5,3.2,0.5c4.3,0,8.3-2.7,9.7-7c1.8-5.4-1.1-11.2-6.5-13l-19.7-6.6V210.2L390,214.6z M356.2,477.4
+                                         c0,6.8-5.5,12.3-12.3,12.3H166.3c-6.8,0-12.3-5.5-12.3-12.3V32.9c0-6.8,5.5-12.3,12.3-12.3h177.6c6.8,0,12.3,5.5,12.3,12.3
+                                         L356.2,477.4L356.2,477.4z"/>
+                                 </g>
+                             </g>
+                             </svg>
+     
+                         </label>
+                     </div>
+     
+                     <div>
+                         <input  type="checkbox" id="palmibici" name="PalmiBici" onchange="estiloSelect()">
+                         <label for="palmibici" class="inputBicicleta">
+                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                  viewBox="0 0 510.2 510.2" style="enable-background:new 0 0 510.2 510.2;" xml:space="preserve">
+                             <path id="XMLID_638_" d="M239.4,0.2C176,4.1,118.8,31.2,76.2,73.1c-0.5,0.4-1,0.9-1.5,1.3c-0.5,0.5-0.9,1-1.3,1.5
+                                 C28,122.1,0,185.3,0,254.9c0,69.6,28,132.8,73.4,178.9c0.4,0.5,0.9,1,1.3,1.5c0.5,0.5,1,0.9,1.5,1.3C122.3,482,185.5,510,255.1,510
+                                 s132.8-28,178.9-73.4c0.5-0.4,1-0.9,1.5-1.3c0.5-0.5,0.9-1,1.3-1.5c45.4-46.1,73.4-109.3,73.4-178.9s-28-132.8-73.4-178.9
+                                 c-0.4-0.5-0.9-1-1.3-1.5c-0.5-0.5-1-0.9-1.5-1.3c-42.6-41.9-99.8-69-163.2-72.9c0,0-4.4,0-16.9,0C242,0.2,239.4,0.2,239.4,0.2z
+                                  M478.3,239.2H302c-0.7-2.2-1.6-4.3-2.6-6.4L424,108.2C454.9,143.8,474.8,189.3,478.3,239.2z M270.8,31.7
+                                 c49.9,3.5,95.4,23.4,131,54.4L277.2,210.6c-2-1-4.2-1.9-6.4-2.6V31.7z M239.4,31.7V208c-2.2,0.7-4.3,1.6-6.4,2.6L108.5,86
+                                 C144.1,55.1,189.5,35.2,239.4,31.7z M86.3,108.2l124.6,124.6c-1,2-1.9,4.2-2.6,6.4H31.9C35.4,189.3,55.3,143.8,86.3,108.2z
+                                  M31.9,270.6h176.3c0.7,2.2,1.6,4.3,2.6,6.4L86.3,401.5C55.3,365.9,35.4,320.5,31.9,270.6z M239.4,478.1
+                                 c-49.9-3.5-95.4-23.4-131-54.4l124.6-124.6c2,1,4.2,1.9,6.4,2.6L239.4,478.1L239.4,478.1z M255.1,272.9c-10,0-18.1-8.1-18.1-18.1
+                                 s8.1-18.1,18.1-18.1c10,0,18.1,8.1,18.1,18.1S265.1,272.9,255.1,272.9z M270.8,478.1V301.8c2.2-0.7,4.3-1.6,6.4-2.6l124.6,124.6
+                                 C366.2,454.7,320.7,474.6,270.8,478.1z M424,401.5L299.4,276.9c1-2,1.9-4.2,2.6-6.4h176.3C474.8,320.5,454.9,365.9,424,401.5z"/>
+                             </svg>
+                         </label>
+                     </div>
+     
+                                     <div>
+                         <input  type="checkbox" id="camara" name="camara" onchange="estiloSelect()">
+                         <label for="camara" class="inputCamara">
+                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                  viewBox="0 0 510.2 510.2" style="enable-background:new 0 0 510.2 510.2;" xml:space="preserve">
+                             <g>
+                                 <path d="M507.3,138.9c-2.9-4.1-7.6-6.5-12.6-6.7l-46.2-1.2l5.2-16.9c2.6-8.4-2.1-17.4-10.5-20l-283.2-88c-8.4-2.6-17.4,2.1-20,10.5
+                                     l-44,141.6c-2.6,8.4,2.1,17.4,10.5,20L164,196l-9.5,30.5c-1.3,4-0.9,8.4,1.1,12.2s5.3,6.6,9.4,7.8l26.1,8.1l-64.7,104.6
+                                     c-9.4-4.1-19.7-6.4-30.6-6.4H16c-8.8,0-16,7.1-16,16v120.1c0,8.8,7.1,16,16,16h79.8c41.9,0,76-34.1,76-76
+                                     c0-19.5-7.4-37.4-19.6-50.9c0.3-0.4,0.6-0.8,0.9-1.2l69.5-112.3l33.9,10.5c1.6,0.5,3.2,0.7,4.7,0.7c6.8,0,13.1-4.4,15.2-11.2
+                                     l9.5-30.5l103.8,32.3c1.5,0.5,3.1,0.7,4.7,0.7c2.6,0,5.1-0.6,7.4-1.8c3.7-2,6.6-5.3,7.8-9.4l5.2-16.9l38.7,25.2
+                                     c2.6,1.7,5.6,2.6,8.7,2.6c1.8,0,3.7-0.3,5.4-1c4.7-1.7,8.3-5.5,9.8-10.3l31.8-102.4C511,148.1,510.2,142.9,507.3,138.9L507.3,138.9
+                                     z M31.9,384.7h21.3v88.2H31.9V384.7z M95.8,472.9H85.1v-88.2h10.6c24.3,0,44.1,19.8,44.1,44.1C139.9,453.1,120.1,472.9,95.8,472.9
+                                     L95.8,472.9z M250.7,239.7l-61-19l4.7-15.2l61,19L250.7,239.7z M384,231l-252.7-78.5l34.5-111.1l252.7,78.5l-6.8,21.8l-21,67.5
+                                     c0,0,0,0,0,0C390.8,209.2,384,231,384,231z M453.5,225.7l-28.6-18.6l13.8-44.4l34.1,0.9L453.5,225.7L453.5,225.7z"/>
+                                 <path d="M169,117.9c-4.2,0-8.3,1.7-11.3,4.7c-3,3-4.7,7.1-4.7,11.3c0,4.2,1.7,8.3,4.7,11.3c3,3,7.1,4.7,11.3,4.7
+                                     c4.2,0,8.3-1.7,11.3-4.7c3-3,4.7-7.1,4.7-11.3c0-4.2-1.7-8.3-4.7-11.3C177.3,119.6,173.2,117.9,169,117.9z"/>
+                             </g>
+                             </svg>
+                         </label>
+                     </div>
+                     
+                 </div> -->
+            
             </div>
 
-        </div>
-        <div class="mapa" id="map"></div>
-        
-    </section>
+        </section>
 
-    <script src="./datos.js"></script>
+        <section class="mapa" id="map"></section>
+
+    </div>
+
     <script src="./js.js"></script>
 
 </body>

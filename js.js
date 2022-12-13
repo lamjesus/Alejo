@@ -1,114 +1,103 @@
-// const map = L.map("map", { center: [3.5284, -76.2922], zoom: 15 });
-// L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-//   attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-// }).addTo(map);
 
-// const circle = L.circle([3.52767, -76.29972], {
-//     color: 'red',
-//     fillColor: '#f03',
-//     fillOpacity: 0.8,
-//     radius: 20
-// }).addTo(map);
 
-// circle.bindPopup("<b>El Teatro Materón</b><br>Es nuestra oficina, bueno un gran espacio en el piso 4");
-
-const respuestaDrive = async()=>{
-  const response = await fetch('https://script.google.com/macros/s/AKfycbxbF90WBTEsu213neYGsgbvpkoJ33OYdWjOtQViQW48rdgJdakeSRxlPSGvbWmo4Epv/exec')
+const respuestaDrive = async () => {
+  const response = await fetch('https://script.google.com/macros/s/AKfycbw9JmUJV1aJolG-96Bn2UzSiEmhAgvvW8f46tvDUtMOo1zCiTQ-Olotr9QqXAmgBPJd/exec')
   const data = await response.json()
- const features = []
- data.forEach(feature => {
-  features.push({"geometry": {
-      "coordinates": [feature.Coordinates],
-      "type": feature.Type
-  },
-  "properties": {
-      "Descripcion": feature.Descripcion,
-      "Titulo": feature.Titulo,
-      "Proyecto": feature.Proyecto,
-      "Barrio": feature.Barrio,
-      "Dependencia": feature.Dependencia,
-      "Comuna": feature.Comuna,
-      "Imagen": feature.Imagen,
-  },
-  "type": "Feature"})
-  
- })
- 
- return features
+  console.log(data);
+  const features = []
+  data.forEach(feature => {
+    features.push({
+      "geometry": {
+        "coordinates": [feature.coordinates1, feature.coordinates2],
+        "type": feature.type
+      },
+      "properties": {
+        "Descripcion": feature.Descripcion,
+        "Titulo": feature.Titulo,
+        "Proyecto": feature.Proyecto,
+        "Barrio": feature.Barrio,
+        "Dependencia": feature.Dependencia,
+        "Comuna": feature.Comuna,
+        "Imagen": feature.Imagen,
+      },
+      "type": "Feature"
+    })
+
+  })
+
+  console.log("feature", features);
+  const geo = {
+    "type": "FeatureCollection",
+    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+    "features": features,
+    "type": "FeatureCollection"
+  }
+
+  return geo
 }
-const data = async ()=>{
-  return await respuestaDrive()
-}
-
-
-let geojson = {
-  "type": "FeatureCollection",
-  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-  
-  "features": [  data() ],
-  "type": "FeatureCollection"
-};
-
-
-console.log(geojson);
-
-
-
-
-
-
-const map = L.map('map', {center: [3.5284, -76.2922], zoom: 15,});
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',}).addTo(map);
-
-const mapaProyectos = L.layerGroup().addTo(map);
 
 function colorPuntoProyecto(cadaProyectoConColor) {
   let cadaPunto = {
-    Galeria: "#D81B60",
-    'Aguas de Palmira': "#1565C0",
-    'Casa de Mujeres Empoderadas de Palmira': "#AB47BC",
-    Megacolegio: "#00ACC1",
-    'Palmira Nos Conecta': "#303F9F",
-    Sisben: "#C62828",
-    ViasPaLante: "#FF8F00",
-    'Presupuesto para el Desarrollo Local':"#3D5AFE",
-    'Fondo Destacados':"#FF4081",
-    Palmipilos:"#00BCD4",
-    Semaforo :"#F50057",
-    Palmibici:"#FFD600",
-    Camaras:"#00BCD4",
+    'Áreas con esquemas de Pago por Servicios Ambientales implementados': "#1565C0",
+    'Áreas con servicio ecosistémicos mantenidas (Siembra de Árboles)': "#AB47BC",
+    'Campañas de educación Ambiental y participación implementadas (Ruta Verde)': "#00ACC1",
+    'PROGRAMA PALMIPILOS EN CONVENIO CON EL  BANCO INTERAMERICANO DE DESARROLLO - BID': "#303F9F",
+    'PROGRAMA MUNICIPAL DE BILINGÜISMO - Palmira Moving Palante': "#C62828",
+    'ESTRATEGIA ESCUELA SOMOS TODOS': "#FF8F00",
+    'FONDO DESTACADOS': "#3D5AFE",
+    'GASTOS ADMINISTRATIVOS - DOTACION PARA PERSONAL ADMINISTATIVO Y DOCENTE A CARGO DEL SGP': "#FF4081",
+    'GASTOS ADMINISTRATIVOS - BIENESTAR LABORAL': "#00BCD4",
+    'INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES RECURSOS FOME': "#F50057",
+    'INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES - PROYECTO TERMINACION DE CUBIERTAS EN ESCENARIOS DEPORTIVOS': "#FFD600",
+    'INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES CON RECURSOS FINDETER': "#00BCD4",
+    'INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES CON RECURSOS DEL DESARROLLO LOCAL COMUNA 1': "#E57373",
+    'PROGRAMA TRANSPORTE ESCOLAR': "#8E24AA",
+    'PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE': "#F9A825",
+    'PROGRAMA YO ELIJO MI CUPO': "#B71C1C",
+    'Palmira Nos Conecta con Zonas WIFI Gratuitas': "#B388FF",
+    'Palmira Nos Conecta con los Puntos Vive Digital': "#827717",
+    'Capacidad Operativa (Mayor presencia de la policia en comunas)': "#C0CA33",
+    'Comparativo (Desarticulación de Bandas Delincuenciales por comuna)': "#E65100",
+    'Yo cuido mi barrio': "#D81B60",
+
   };
-  
   let cadaPunto_default = "#37474F";
   cadaProyectoConColor = cadaPunto[cadaProyectoConColor] || cadaPunto_default;
   return cadaProyectoConColor;
 };
 
-function estilo_proyectos (feature) {
-  return{
+
+
+
+
+const map = L.map('map', { center: [3.5284, -76.2922], zoom: 12, });
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>', }).addTo(map);
+
+const mapaProyectos = L.layerGroup().addTo(map);
+
+
+function estilo_proyectos(feature) {
+  return {
     radius: 5,
-    fillColor: colorPuntoProyecto(feature.properties.Proyecto), 
-    color: colorPuntoProyecto(feature.properties.Proyecto), 
+    fillColor: colorPuntoProyecto(feature.properties.Proyecto),
+    color: colorPuntoProyecto(feature.properties.Proyecto),
     weight: 8,
-    opacity : 0.2,
-    fillOpacity : 0.8,
+    opacity: 0.2,
+    fillOpacity: 0.8,
   };
 };
 
-function popup_proyectos (feature, layer) {
+function popup_proyectos(feature, layer) {
   layer.bindPopup(
-  "<div style=text-align:center><h3>"+feature.properties.Titulo+"</h3></div>"+
-  "<hr>"+
-  // "<table><tr><td><span class='bold'>Familia:</span></br>"+feature.properties.Familia+"</td></tr>"+
+    "<div style=text-align:center><h3>" + feature.properties.Titulo + "</h3></div>" +
+    "<hr>" +
+    
+    "<tr><td><span class='bold'>Proyecto:</span></br>" + feature.properties.Proyecto + "</td></tr></br></br>" +
 
-  // "<tr><td><span class='bold'>Barrio:</span></br> "+feature.properties.Barrio+"</td></tr>"+
-  // "</td></tr><tr><td><span class='bold'>Comuna:</span></br> "+feature.properties.Comuna+
-  "<tr><td><span class='bold'>Proyecto:</span></br>"+feature.properties.Proyecto+"</td></tr></br></br>"+
-
-  "<tr><td><span class='bold'>Descripción:</span></br> "+feature.properties.Descripcion+"</br></br></td></tr>"+
-  "<tr><td style=text-align:center><img src="+feature.properties.Imagen+" width='140'> "+"</td></tr></table>",
-  // "</td></tr><tr><td>"+feature.properties.Link+               
-  {minWidth: 200, maxWidth: 250});				
+    "<tr><td><span class='bold'>Descripción:</span></br> " + feature.properties.Descripcion + "</br></br></td></tr>" +
+    "<tr><td style=text-align:center><img src=" + feature.properties.Imagen + " width='140'> " + "</td></tr></table>",
+             
+    { minWidth: 200, maxWidth: 250 });
 };
 
 let MarkerOptions = {
@@ -117,116 +106,142 @@ let MarkerOptions = {
   color: "#000",
   weight: 1,
   opacity: 1,
- fillOpacity: 0.8
+  fillOpacity: 0.8
 };
 
-function myFunction() { 
-  let proyectos = L.geoJSON(geojson, {
+async function myFunction() {
+  const geojson = await respuestaDrive()
+  console.log(geojson);
+  let proyectos = await L.geoJSON(geojson, {
     pointToLayer: function (feature, latlng) {
+
       return L.circleMarker(latlng, MarkerOptions);
-    },	
-    style:estilo_proyectos,
-    onEachFeature: popup_proyectos	
-  });		
-mapaProyectos.addLayer(proyectos);
+    },
+    style: estilo_proyectos,
+    onEachFeature: popup_proyectos
+  });
+  mapaProyectos.addLayer(proyectos);
 
 
 }
 
-function estiloSelect() {
-  let miSelect = document.getElementById("Proyecto").value;
-  let miSelect2 = document.getElementById("Comuna").value;
-  let miSelect3 = document.getElementById("Barrio").value;
-  let miSelect4 = document.getElementById("Dependencia").value;
-  let miSelect5 = document.getElementById("semaforo").checked;
-  let miSelect6 = document.getElementById("palmibici").checked;
-  let miSelect7 = document.getElementById("camara").checked;
+async function estiloSelect() {
+
+  let seleccion1 = !0;
+  let seleccion2 = !0;
+  let seleccion3 = !0;
+  let seleccion4 = !0;
+  let seleccionProyecto = document.getElementById("Proyecto").value;
 
   let dataPrint = document.getElementById("dataPresupuesto");
+  let dataPrint2 = document.getElementById("dataPresupuestoInvertido");
 
+
+  const geojson = await respuestaDrive()
   let proyectos = L.geoJSON(geojson, {
     pointToLayer: function (feature, latlng) {
       return L.circleMarker(latlng, MarkerOptions);
     },
-    filter: function(feature, layer) {								
-      if(miSelect != "TODOS")	{
-        return (feature.properties.Proyecto == miSelect );
-      }	
-      if(miSelect2 != "TODOS")	{
-        return (feature.properties.Comuna == miSelect2);
-      }	
-      if(miSelect3 != "TODOS")	{
-        return (feature.properties.Barrio == miSelect3 );
-      }	
-      if(miSelect4 != "TODOS")	{
-        return (feature.properties.Dependencia == miSelect4 );
+    filter: function (feature, layer) {
+
+
+      if (document.getElementById("Dependencia").value) {
+        seleccion1 = (feature.properties.Dependencia == document.getElementById("Dependencia").value)
       }
-      if(miSelect5 == true )  {
-        return (feature.properties.Proyecto == "Semaforo" );                                
+
+
+      if (document.getElementById("Proyecto").value) {
+        seleccion2 = (feature.properties.Proyecto == document.getElementById("Proyecto").value);
       }
-      if(miSelect6 == true )  {
-        return (feature.properties.Proyecto == "Palmibici" );                                
+
+
+      if (document.getElementById("Comuna").value) {
+        seleccion3 = (feature.properties.Comuna == document.getElementById("Comuna").value)
       }
-      if(miSelect7 == true )  {
-        return (feature.properties.Proyecto == "Camaras" );                                
+
+
+      if (document.getElementById("Barrio").value) {
+        seleccion4 = (feature.properties.Barrio == document.getElementById("Barrio").value)
       }
-      else
-        return true
-      },
-      style:estilo_proyectos,
-      onEachFeature:popup_proyectos	
+
+
+      return (seleccion1 && seleccion2 && seleccion3 && seleccion4);
+    },
+
+    style: estilo_proyectos,
+    onEachFeature: popup_proyectos
+
   });
 
-  if(miSelect2 == '1' ) {
-    dataPrint.innerHTML = "100";
+  const presupuestoTotal = {
+    "Áreas con esquemas de Pago por Servicios Ambientales implementados": "$ 400,000,000",
+    "Áreas con servicio ecosistémicos mantenidas (Siembra de Árboles)": "$ 45,000,000",
+    "Campañas de educación Ambiental y participación implementadas (Ruta Verde)": "$ 55,288,000",
+    "PROGRAMA PALMIPILOS EN CONVENIO CON EL  BANCO INTERAMERICANO DE DESARROLLO - BID": "$ 2.558.781.930",
+    "PROGRAMA MUNICIPAL DE BILINGÜISMO - Palmira Moving Palante": "$ 314.362.539",
+    "ESTRATEGIA ESCUELA SOMOS TODOS": "$ 234.000.000",
+    "FONDO DESTACADOS": "$ 3.362.493.315",
+    "GASTOS ADMINISTRATIVOS - DOTACION PARA PERSONAL ADMINISTATIVO Y DOCENTE A CARGO DEL SGP": "$ 0.00",
+    "GASTOS ADMINISTRATIVOS - BIENESTAR LABORAL": "$ 90.000.000",
+    "INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES RECURSOS FOME": "$ 475.587.162",
+    "INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES - PROYECTO TERMINACION DE CUBIERTAS EN ESCENARIOS DEPORTIVOS": "$ 1.579.952.586",
+    "INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES CON RECURSOS FINDETER": "$ 0 (por gestión)",
+    "INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES CON RECURSOS DEL DESARROLLO LOCAL COMUNA 1": "$ 422.377.099",
+    "PROGRAMA TRANSPORTE ESCOLAR": "$ 6.092.597.257",
+    "PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE": "$ 15.020.899.023",
+    "PROGRAMA YO ELIJO MI CUPO": "$ 44.400.000",
+    "Palmira Nos Conecta con Zonas WIFI Gratuitas": "$ 0.00",
+    "Palmira Nos Conecta con los Puntos Vive Digital": "$ 109.200.000",
+    "Capacidad Operativa (Mayor presencia de la policia en comunas)": "$ 5.030.725.532",
+    "Comparativo (Desarticulación de Bandas Delincuenciales por comuna)": "$ 508.067.586",
+    "Yo cuido mi barrio": "$ 392.284.646",
+    "MEJORAMIENTO DEL ACCESO PARA LA POBLACIÓN EN CONDICIÓN DE VULNERABILIDAD DEL MUNICIPIO DE PALMIRA": "$ 500.000.000",
+    "Adecuación Mantenimiento y Dotación de Centros de Desarrollo Infantil Ubicados en el Municipio de Palmira": "No hay datos",
+    "Mejoramiento de la calidad de vida de adultos mayores en condición de vulnerabilidad en el municipio de Palmira": "$ 655.000.000",
+    "Fortalecimiento de los instrumentos para la atención de la población en condición de vulnerabilidad del municipio de Palmira": "$ 3.000.000",
+    "prueba": ":)",
   }
-  else if(miSelect2 == '2' ) {
-    dataPrint.innerHTML = "200";
+
+  const mostrarPresupuestoTotal = (presupuesto) => {
+    dataPrint.innerHTML = (presupuestoTotal[presupuesto] || "Selecciona un Proyecto")
   }
-  else if(miSelect2 == '3' ) {
-    dataPrint.innerHTML = "300";
+  mostrarPresupuestoTotal(seleccionProyecto);
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  const presupuestoInvertido = {
+    "Áreas con esquemas de Pago por Servicios Ambientales implementados": "$ 193,691.619",
+    "Áreas con servicio ecosistémicos mantenidas (Siembra de Árboles)": "$ 33,750,000",
+    "Campañas de educación Ambiental y participación implementadas (Ruta Verde)": "$ 0.00",
+    "PROGRAMA PALMIPILOS EN CONVENIO CON EL  BANCO INTERAMERICANO DE DESARROLLO - BID": "$ 501.675.000",
+    "PROGRAMA MUNICIPAL DE BILINGÜISMO - Palmira Moving Palante": "$ 62.000.000",
+    "ESTRATEGIA ESCUELA SOMOS TODOS": "$ 171.200.000",
+    "FONDO DESTACADOS": "$ $3.119.310.456",
+    "GASTOS ADMINISTRATIVOS - DOTACION PARA PERSONAL ADMINISTATIVO Y DOCENTE A CARGO DEL SGP": "$ 0.00",
+    "GASTOS ADMINISTRATIVOS - BIENESTAR LABORAL": "$ 33.700.000",
+    "INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES RECURSOS FOME": "$ 475.587.162",
+    "INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES - PROYECTO TERMINACION DE CUBIERTAS EN ESCENARIOS DEPORTIVOS": "$ 0 (por gestión)",
+    "INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES CON RECURSOS FINDETER": "$ 0 (por gestión)",
+    "INFRAESTRUCTURA EDUCATIVA MEJORAMIENTO DE LOS AMBIENTES ESCOLARES CON RECURSOS DEL DESARROLLO LOCAL COMUNA 1": "$ 422.377.099",
+    "PROGRAMA TRANSPORTE ESCOLAR": "$ 4.579.394.697",
+    "PROGRAMA DE ALIMENTACIÓN ESCOLAR PAE": "$ 9.018.468.704",
+    "PROGRAMA YO ELIJO MI CUPO": "$ 37.000.000",
+    "Palmira Nos Conecta con Zonas WIFI Gratuitas": "$ 0.00",
+    "Palmira Nos Conecta con los Puntos Vive Digital": "$ 79.200.000",
+    "Capacidad Operativa (Mayor presencia de la policia en comunas)": "$ 1.420.350.887",
+    "Comparativo (Desarticulación de Bandas Delincuenciales por comuna)": "$ 491.500.000,00",
+    "Yo cuido mi barrio": "$ 301.553.279",
+    "MEJORAMIENTO DEL ACCESO PARA LA POBLACIÓN EN CONDICIÓN DE VULNERABILIDAD DEL MUNICIPIO DE PALMIRA": "$ 500.000.000",
+    "Adecuación Mantenimiento y Dotación de Centros de Desarrollo Infantil Ubicados en el Municipio de Palmira": "No hay datos",
+    "Mejoramiento de la calidad de vida de adultos mayores en condición de vulnerabilidad en el municipio de Palmira": "$ 655.000.000",
+    "Fortalecimiento de los instrumentos para la atención de la población en condición de vulnerabilidad del municipio de Palmira": "$ 3.000.000",
+    "prueba": ":)",
   }
-    else if(miSelect2 == '4' ) {
-    dataPrint.innerHTML = "400";
+
+  const mostrarPresupuestoTotalInvertido = (presupuesto) => {
+    dataPrint2.innerHTML = (presupuestoInvertido[presupuesto] || "Selecciona un Proyecto")
   }
-    else if(miSelect2 == '5' ) {
-    dataPrint.innerHTML = "500";
-  }
-    else if(miSelect2 == '6' ) {
-    dataPrint.innerHTML = "600";
-  }
-    else if(miSelect2 == '7' ) {
-    dataPrint.innerHTML = "700";
-  }
-    else if(miSelect2 == '8' ) {
-    dataPrint.innerHTML = "800";
-  }
-    else if(miSelect2 == '9' ) {
-    dataPrint.innerHTML = "900";
-  }
-    else if(miSelect2 == '10' ) {
-    dataPrint.innerHTML = "1.000";
-  }
-    else if(miSelect2 == '11' ) {
-    dataPrint.innerHTML = "11.000";
-  }
-    else if(miSelect2 == '12' ) {
-    dataPrint.innerHTML = "12.000";
-  }
-    else if(miSelect2 == '13' ) {
-    dataPrint.innerHTML = "13.000";
-  }
-    else if(miSelect2 == '14' ) {
-    dataPrint.innerHTML = "14.000";
-  }
-    else if(miSelect2 == '15' ) {
-    dataPrint.innerHTML = "15.000";
-  }
-    else if(miSelect2 == '16' ) {
-    dataPrint.innerHTML = "16.000";
-  }
-  else
-    dataPrint.innerHTML = "500.000.000.000";
+  mostrarPresupuestoTotalInvertido(seleccionProyecto);
 
   mapaProyectos.clearLayers();
   mapaProyectos.addLayer(proyectos);
